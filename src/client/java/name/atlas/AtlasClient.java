@@ -37,17 +37,33 @@ public class AtlasClient implements ClientModInitializer {
 
 			float rotation = minecraft.player.getYHeadRot() % 360;
 
-			rotation -= 180;
+			rotation = Math.round(rotation);
 
 			if(rotation < 0)
 				rotation += 360;
 
-			rotation = Math.round(rotation);
+			rotation += 180;
 
-			minecraft.player.displayClientMessage(Component.translatable(String.valueOf((int)rotation)),false);
+			if(rotation >= 360)
+				rotation -= 360;
+
+
+
+			String direction = " ERROR";
+
+			if(rotation >= 45 && rotation < 135)
+				direction = " (East)";
+			if(rotation >= 135 && rotation < 225)
+				direction = " (South)";
+			if(rotation >= 225 && rotation < 315)
+				direction = " (West)";
+			if(rotation >= 315 || rotation < 45)
+				direction = " (North)";
+
+			minecraft.player.displayClientMessage(Component.translatable(String.valueOf((int)rotation) + direction),false);
 		}
-		catch (Exception e) {
-			return;
+		catch (Exception ignored) {
+
 		}
 	}
 
@@ -60,6 +76,7 @@ public class AtlasClient implements ClientModInitializer {
 				return;
 			if(minecraft.player.getMainHandItem().getItem() != Items.SPYGLASS)
 				return;
+
 
 			// TODO: add logic to find the distance to the block the player is looking at.
 		}

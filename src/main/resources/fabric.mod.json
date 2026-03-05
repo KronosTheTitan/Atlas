@@ -3,13 +3,13 @@
 	"id": "atlas",
 	"version": "${version}",
 	"name": "Atlas",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Atlas is a small mod for Minecraft that allows the use of vanilla items in new ways for some situations where you would otherwise use the F3 menu.",
 	"authors": [
-		"Me!"
+		"Kronos"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/KronosTheTitan/Atlas"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/atlas/icon.png",
